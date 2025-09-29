@@ -1,0 +1,22 @@
+{
+  "name": "tg-bot-kyz",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "tg bot",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "potanes",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "google-auth-library": "^10.3.0",
+    "google-spreadsheet": "^5.0.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "nodemon": "^3.1.10"
+  }
+}

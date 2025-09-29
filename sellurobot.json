@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sellurobot",
+  "private_key_id": "7712c05280251a52e1baca2a8d0ddf41a70713f2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCzd+Fc/9GuBBdR\n3DP65kKa7884WC59S02srvtdYWS0opRODdEZY1WWQgYgxiKOTMH5zBBYL/zmXLWG\ngCDQGfKJMUvQuTxQ1U0fUypdbuztwCLxDJvQf0GcH2ZhU9bY/EpjWDoXciMtG/f+\nCxJOtOpr3rYS9xlwRCBT0F8dpNo5brVj0GOAakHu+7Z0ci8orpM6xcdw0kh6lS0G\n0kYMEFhT2huPaGSDtNppuTLwlxGuth90MVL/d/+tq5Gpr1fxeMoG5tVcvPLc//Mv\n7gEb+IxtoSpBWHgxlJdD7p14tRMBmkFvJQwIGibQTc66/iQRNy7xtxEdcZ5mArDT\nOTmcVZWtAgMBAAECggEAFVSN/UTtebKESAc1SWCFMY+HkEGQ0vT4iCnq98wL0VlS\naZ2ESPFwunFh85LBCCsw0dzyY1zewM1riM8hN0KiPDKW+XmOpOfZKPw0OJMmx1Iz\nBPXT7hm15VWpEC/MBRGlUL3rd55p9mJQ3QmZVS/0/bmkZ8glJp3+Pp/xMh+GDVW7\nG6hXlg1jGZW8LIv2RDk2LIF9x5O/6fyyIELRM5Dkmu2aWiEETL5M/6VpFtCmv7yx\n4Q14O0Nktz/odR7SO7StSrl+D5/VJOmbpUDgx/Cv832YHaJN49qq0Hzzl10ElqBR\nUKJs/UKIJlMyg3Z3XiaSorOviXsL3dANl283ESbc+QKBgQDxSnTSUWgljKowJBiD\nj/DuNja3j4zAzd2NKfi5McHULAUqDopvzszP12K8hP+6gHJdhC7+k6HThunvvnVB\nM7rBzFXN/qdECuM2AHeKnNe4RVlMd3A6Bi+EhMPPnfWu5AwEfIGWlePM5hjp/3Ye\n8IZTl+HUuIMO2bU0ovakLuBLOQKBgQC+aKGz9Yj4gPRulW4DHLjuhfRN0lETCuYc\nA8PJOyi9VOAy7GIzt+K71coiX/+BskFvzDkj/ni2BM1LBU4TeFt50xAP6sD8sko0\n+kTG4Ds3IHtY3zLbDJsbd6784Ab3V2C8v4IBal+ExLQbHKq5Quf2oPPEw/XrY1JY\nHEi2j4i6FQKBgDS/mTBNOZ5T1PS3P2Cre/kngui4CgYwOwncLhKWTRBMG0jpatws\nclvRczVRQfKMl/PXrMpcjdkHOmb91PZPD7nEKNHipMBcPPWWPovf48zV5EKyLaeR\nqJuoxoHBv27fTb1BVrcLx4QInVOyVClJXaQypNzzBTue3l1GbvLPiJsJAoGAN2HL\nlsJWAqHPdtKz2ufhyk7gDjqcJkPHRmK58a/pW5hyVZ13ur9DjYrTbkgp0xl7+v6V\nqCh+B8NByw5R9UvOn5KKW3bWhyl8eAhLNOVHk/M4rVLOQfRasRSQqzCmFg8uLfgt\n4ieEfOOR10jxR010lsGd5Z9xyfNrogEoDSGWjTkCgYEAutiwlORRZ4p0tIhPNqfY\nvGfaQwtt3dMECFoqwlkXU2XI8oVJ1rfiapc9+UnNho52aUJaZlJ8zRJ+uvrEHYug\nlhTmuyE0u0A6tvU9+SocFvIi2Qm/hJsq2gpXR6x02K0Bn3dpYuMdFXvJt5FdpPXP\nJU0oj3rx4d2xlHNjQuqPJfQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sellurobot@sellurobot.iam.gserviceaccount.com",
+  "client_id": "112636134554554344883",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sellurobot%40sellurobot.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
