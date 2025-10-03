@@ -1,23 +1,24 @@
+import dotenv from 'dotenv';
 import TgApi from 'node-telegram-bot-api';
 import {GoogleSpreadsheet} from "google-spreadsheet";
 import {JWT} from 'google-auth-library';
 import express from 'express';
 import cors from 'cors';
 import { buttonsStart, buttonsSub, buttonsDeposit, buttonsTask } from './buttons.js';
-import {BOT_TOKEN, GOOGLE_TABLE_ID, GOOGLE_PRIVATE_KEY, GOOGLE_CLIENT_EMAIL, SCOPES, CHANNEL_ID} from './keys.js'
+import {GOOGLE_TABLE_ID, GOOGLE_CLIENT_EMAIL, SCOPES, CHANNEL_ID} from './keys.js'
 import { startText, depositText } from './descriptions.js'
 import { googleIntegration } from "./googleIntegration.js";
-
+dotenv.config();
 let dataTask = {};
 
-const bot = new TgApi(BOT_TOKEN, { polling: true });
+const bot = new TgApi(process.env.BOT_TOKEN, { polling: true });
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 const serviceAccountAuth = new JWT({
     email: GOOGLE_CLIENT_EMAIL,
-    key: GOOGLE_PRIVATE_KEY,
+    key: process.env.GOOGLE_PRIVATE_KEY,
     scopes: SCOPES,
 });
 const doc = new GoogleSpreadsheet(GOOGLE_TABLE_ID, serviceAccountAuth);
