@@ -8,7 +8,7 @@ import { buttonsStart, buttonsSub, buttonsDeposit, buttonsTask } from './buttons
 import {GOOGLE_TABLE_ID, GOOGLE_CLIENT_EMAIL, SCOPES, CHANNEL_ID} from './keys.js'
 import { startText, depositText } from './descriptions.js'
 import { googleIntegration } from "./googleIntegration.js";
-dotenv.config({ debug: true });
+dotenv.config();
 let dataTask = {};
 
 const bot = new TgApi(process.env.BOT_TOKEN, { polling: true });
@@ -18,7 +18,7 @@ app.use(cors());
 
 const serviceAccountAuth = new JWT({
     email: GOOGLE_CLIENT_EMAIL,
-    key: process.env.GOOGLE_PRIVATE_KEY.replace(/\n/gm, "\n"),
+    key: process.env.GOOGLE_PRIVATE_KEY.split(String.raw`\n`).join('\n'),
     scopes: SCOPES,
 });
 const doc = new GoogleSpreadsheet(GOOGLE_TABLE_ID, serviceAccountAuth);
