@@ -50,7 +50,7 @@ const start = async () => {
         if (msg?.web_app_data?.data) {
             try {
                 dataTask = JSON.parse(msg.web_app_data.data);
-                const { articles, photo } = dataTask;
+                const { articles, photo, email } = dataTask;
                 const price = (articles * 600) + ((articles * photo) * 40);
 
                 await bot.sendInvoice(
@@ -62,6 +62,28 @@ const start = async () => {
                   'RUB',
                   [{label: 'Заказ', amount: price*100 }],
                   {
+                      provider_data: {
+                          receipt: {
+                              customer: {
+                                  email: email,
+                                  phone: ""
+                              },
+                              items: [
+                                  {
+                                      description: "Ваш заказ",
+                                      quantity: 1,
+                                      amount: {
+                                          value: price,
+                                          currency: "RUB"
+                                      },
+                                      vat_code: 1,
+                                      payment_mode: "full_payment",
+                                      payment_subject: "commodity"
+                                  }
+                              ],
+                              tax_system_code: 1
+                          }
+                      },
                       payment_options: {
                           save_payment_method: true,
                       }
