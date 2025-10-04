@@ -34,7 +34,7 @@ const start = async () => {
         const userId = String(msg.from.id);
 
         if (text === '/start') {
-            await bot.getChatMember('-1003124353195', userId).then(async (chatMember) => {
+            await bot.getChatMember('-1002454152888', userId).then(async (chatMember) => {
                 if(chatMember.status === 'administrator' || chatMember.status === 'member' || chatMember.status === 'creator') {
                     await bot.sendMessage(
                       chatId,
