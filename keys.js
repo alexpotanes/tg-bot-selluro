@@ -7,4 +7,4 @@ export const SCOPES = [
 ];
 
 export const WEB_PORTFOLIO = 'https://stone.wfolio.pro/disk/neroset-portfolio-r975cs';
-export const WEB_APP_URL = 'https://famous-sable-041562.netlify.app';
+export const WEB_APP_URL = 'https://tg-web-app-react-psi.vercel.app';
