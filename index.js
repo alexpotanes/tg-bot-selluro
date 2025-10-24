@@ -114,13 +114,14 @@ const start = async () => {
     bot.on('successful_payment', async data => {
         const targetInvoice = data.successful_payment.invoice_payload;
         const chatId = data.chat.id;
-        const name = `${data.chat.first_name} ${data.chat.last_name}`;
+        const username = data.chat.username;
+        const name = `${data.chat.first_name} ${data.chat.last_name ? data.chat.last_name : ''}`;
 
         await doc.loadInfo();
 
         if (targetInvoice === 'send-invoice') {
             const sheet = doc.sheetsByIndex[3]
-            await googleIntegration(sheet, dataTask, chatId, name);
+            await googleIntegration(sheet, dataTask, chatId, name, username);
             return bot.sendMessage(
               chatId,
               `По кнопке ниже можете подсчитать стоимость, заполнить ТЗ, а затем оплатить услугу`,

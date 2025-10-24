@@ -1,4 +1,4 @@
-export async function googleIntegration(sheet, dataTask, chatId, name) {
+export async function googleIntegration(sheet, dataTask, chatId, name, username) {
   const {
     articles,
     photo,
@@ -17,6 +17,7 @@ export async function googleIntegration(sheet, dataTask, chatId, name) {
     "Отметка времени": new Date(),
     "ID ТЗ": chatId,
     "ФИО": name,
+    "TgUsername": username,
     "Кол-во артикулов": articles ,
     "Кол-во фото": photo,
     "Цена": price,
