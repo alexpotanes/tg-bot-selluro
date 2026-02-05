@@ -34,22 +34,16 @@ const start = async () => {
         const userId = String(msg.from.id);
 
         if (text === '/start') {
-            const chats = ['-3315805042', '-1002454152888'];  // массив чатов
-
-            Promise.all(
-              chats.map(chatId => bot.getChatMember(chatId, userId))
-            ).then(async ([chatMember1, chatMember2]) => {
-                const isMember1 = ['creator', 'administrator', 'member'].includes(chatMember1.status);
-                const isMember2 = ['creator', 'administrator', 'member'].includes(chatMember2.status);
-
-                if (isMember1 || isMember2) {
-                    await bot.sendMessage(chatId, `По кнопке ниже можете подсчитать стоимость...`, buttonsSub);
+            await bot.getChatMember('-1002454152888', userId).then(async (chatMember) => {
+                if(chatMember.status === 'administrator' || chatMember.status === 'member' || chatMember.status === 'creator') {
+                    await bot.sendMessage(
+                      chatId,
+                      `По кнопке ниже можете подсчитать стоимость, заполнить ТЗ, а затем оплатить услугу`,
+                      buttonsSub
+                    );
                 } else {
                     await bot.sendMessage(chatId, startText, {parse_mode: 'HTML', ...buttonsStart});
                 }
-            }).catch(async err => {
-                console.error('Ошибка проверки групп:', err);
-                await bot.sendMessage(chatId, startText, {parse_mode: 'HTML', ...buttonsStart});
             });
         }
 
