@@ -12,7 +12,7 @@ export const MAX_REQUESTS_PER_WINDOW = 5; // максимум 5 запроса �
 // Константы валидации
 export const VALIDATION_RULES = {
     articles: {
-        min: 1,
+        min: 0,
         max: 1000,
     },
     photo: {
