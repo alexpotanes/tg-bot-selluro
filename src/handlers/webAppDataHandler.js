@@ -10,7 +10,19 @@ export async function handleWebAppData(bot, msg) {
     const chatId = String(msg.chat.id);
 
     try {
-        const parsedData = JSON.parse(msg.web_app_data.data);
+        const rawData = JSON.parse(msg.web_app_data.data);
+        const parsedData = {
+            articles: Number(rawData.articles),
+            photo: Number(rawData.photo),
+            email: rawData.email,
+        };
+
+        // Валидация входных данных
+        const validationErrors = validateOrderData(parsedData);
+        if (validationErrors.length > 0) {
+            await bot.sendMessage(chatId, `❌ Ошибка валидации:\n${validationErrors.join('\n')}`);
+            return;
+        }
 
         // Сохраняем данные пользователя для последующей обработки платежа
         paymentService.saveUserOrder(chatId, parsedData);
