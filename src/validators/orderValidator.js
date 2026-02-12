@@ -3,8 +3,8 @@ import { VALIDATION_RULES } from '../config/constants.js';
 /**
  * Валидация данных заказа
  * @param {Object} data - Данные заказа
- * @param {number} data.articles - Количество артикулов
- * @param {number} data.photo - Количество фото
+ * @param {number | string} data.articles - Количество артикулов
+ * @param {number | string} data.photo - Количество фото
  * @param {string} data.email - Email пользователя
  * @returns {string[]} Массив ошибок валидации (пустой массив если нет ошибок)
  */
@@ -13,14 +13,14 @@ export function validateOrderData(data) {
     const errors = [];
 
     // Проверка количества артикулов
-    if (!Number.isInteger(articles) ||
+    if (articles ||
         articles < VALIDATION_RULES.articles.min ||
         articles > VALIDATION_RULES.articles.max) {
         errors.push(`Количество артикулов должно быть целым числом от ${VALIDATION_RULES.articles.min} до ${VALIDATION_RULES.articles.max}`);
     }
 
     // Проверка количества фото
-    if (!Number.isInteger(photo) ||
+    if (photo ||
         photo < VALIDATION_RULES.photo.min ||
         photo > VALIDATION_RULES.photo.max) {
         errors.push(`Количество фото должно быть целым числом от ${VALIDATION_RULES.photo.min} до ${VALIDATION_RULES.photo.max}`);
