@@ -32,6 +32,9 @@ export class GoogleSheetsService {
             throw new Error(`Google Sheet с индексом ${GOOGLE_SHEET_INDEX} не найден`);
         }
 
+        // Загружаем заголовки таблицы для корректной работы addRow()
+        await this.sheet.loadHeaderRow();
+
         console.log(`✅ Google Sheets подключен: ${this.doc.title}`);
     }
 
@@ -63,6 +66,9 @@ export class GoogleSheetsService {
         const price = calculatePrice(articles, photo);
 
         try {
+            // Загружаем текущие строки для корректной работы addRow()
+            await this.sheet.loadHeaderRow();
+
             await this.sheet.addRow({
                 "Отметка времени": new Date(),
                 "ID ТЗ": chatId,
