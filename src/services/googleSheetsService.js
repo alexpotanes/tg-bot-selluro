@@ -70,7 +70,7 @@ export class GoogleSheetsService {
             await this.sheet.loadHeaderRow();
             await this.sheet.getRows(); // Загружаем строки, чтобы addRow знал, где конец таблицы
 
-            // Добавляем новую строку в конец таблицы
+            // Добавляем новую строку в конец таблицы с опцией insert: true
             await this.sheet.addRow({
                 "Отметка времени": new Date().toISOString(),
                 "ID ТЗ": chatId,
@@ -87,7 +87,7 @@ export class GoogleSheetsService {
                 "Загрузить фото  товара": productImg,
                 "Я подтверждаю что мои фото сделаны качественно, текстуру видно хорошо, фон однородный.  Чем лучше исходник - тем точнее результат.": acceptResult,
                 "Я осведомлен с тем, что фото и артикулы с большим кол-вом деталей, сложными принтами- не будут переданы в точности.": acceptQuantity
-            });
+            }, { insert: true });
 
             console.log(`✅ Заказ сохранен в Google Sheets: ${chatId}`);
         } catch (error) {
