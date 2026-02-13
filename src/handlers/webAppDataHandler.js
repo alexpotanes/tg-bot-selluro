@@ -15,6 +15,14 @@ export async function handleWebAppData(bot, msg) {
             articles: Number(rawData.articles),
             photo: Number(rawData.photo),
             email: rawData.email,
+            fashion: rawData.fashion || '',
+            product: rawData.product || '',
+            references: rawData.references || '',
+            hair: rawData.hair || '',
+            race: rawData.race || '',
+            productImg: rawData.productImg || '',
+            acceptResult: rawData.acceptResult || '',
+            acceptQuantity: rawData.acceptQuantity || '',
         };
 
         // Валидация входных данных
