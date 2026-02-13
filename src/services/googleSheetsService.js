@@ -66,24 +66,28 @@ export class GoogleSheetsService {
         const price = calculatePrice(articles, photo);
 
         try {
-            // Используем appendRow для добавления в конец таблицы
-            await this.sheet.appendRow([
-                new Date().toISOString(),  // Отметка времени
-                chatId,                     // ID ТЗ
-                name,                       // ФИО
-                username,                   // TgUsername
-                articles,                   // Кол-во артикулов
-                photo,                      // Кол-во фото
-                price,                      // Цена
-                fashion,                    // Есть ли пожелания по фону или образу?
-                product,                    // Какой товар?
-                references,                 // Если есть ссылки на референсы - прикрепите.
-                hair,                       // волосы модели
-                race,                       // расса модели
-                productImg,                 // Загрузить фото  товара
-                acceptResult,               // Я подтверждаю что мои фото сделаны качественно
-                acceptQuantity              // Я осведомлен с тем, что фото и артикулы...
-            ]);
+            // Загружаем заголовки и строки для корректного определения места добавления
+            await this.sheet.loadHeaderRow();
+            await this.sheet.getRows(); // Загружаем строки, чтобы addRow знал, где конец таблицы
+
+            // Добавляем новую строку в конец таблицы
+            await this.sheet.addRow({
+                "Отметка времени": new Date().toISOString(),
+                "ID ТЗ": chatId,
+                "ФИО": name,
+                "TgUsername": username,
+                "Кол-во артикулов": articles,
+                "Кол-во фото": photo,
+                "Цена": price,
+                "Есть ли пожелания по фону или образу?": fashion,
+                "Какой товар?": product,
+                "Если есть ссылки на референсы - прикрепите.": references,
+                "волосы модели": hair,
+                "расса модели": race,
+                "Загрузить фото  товара": productImg,
+                "Я подтверждаю что мои фото сделаны качественно, текстуру видно хорошо, фон однородный.  Чем лучше исходник - тем точнее результат.": acceptResult,
+                "Я осведомлен с тем, что фото и артикулы с большим кол-вом деталей, сложными принтами- не будут переданы в точности.": acceptQuantity
+            });
 
             console.log(`✅ Заказ сохранен в Google Sheets: ${chatId}`);
         } catch (error) {
