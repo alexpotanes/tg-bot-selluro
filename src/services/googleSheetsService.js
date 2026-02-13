@@ -66,26 +66,24 @@ export class GoogleSheetsService {
         const price = calculatePrice(articles, photo);
 
         try {
-            // Загружаем текущие строки для корректной работы addRow()
-            await this.sheet.loadHeaderRow();
-
-            await this.sheet.addRow({
-                "Отметка времени": new Date(),
-                "ID ТЗ": chatId,
-                "ФИО": name,
-                "TgUsername": username,
-                "Кол-во артикулов": articles,
-                "Кол-во фото": photo,
-                "Цена": price,
-                "Есть ли пожелания по фону или образу?": fashion,
-                "Какой товар?": product,
-                "Если есть ссылки на референсы - прикрепите.": references,
-                "волосы модели": hair,
-                "расса модели": race,
-                "Загрузить фото  товара": productImg,
-                "Я подтверждаю что мои фото сделаны качественно, текстуру видно хорошо, фон однородный.  Чем лучше исходник - тем точнее результат.": acceptResult,
-                "Я осведомлен с тем, что фото и артикулы с большим кол-вом деталей, сложными принтами- не будут переданы в точности.": acceptQuantity
-            });
+            // Используем appendRow для добавления в конец таблицы
+            await this.sheet.appendRow([
+                new Date().toISOString(),  // Отметка времени
+                chatId,                     // ID ТЗ
+                name,                       // ФИО
+                username,                   // TgUsername
+                articles,                   // Кол-во артикулов
+                photo,                      // Кол-во фото
+                price,                      // Цена
+                fashion,                    // Есть ли пожелания по фону или образу?
+                product,                    // Какой товар?
+                references,                 // Если есть ссылки на референсы - прикрепите.
+                hair,                       // волосы модели
+                race,                       // расса модели
+                productImg,                 // Загрузить фото  товара
+                acceptResult,               // Я подтверждаю что мои фото сделаны качественно
+                acceptQuantity              // Я осведомлен с тем, что фото и артикулы...
+            ]);
 
             console.log(`✅ Заказ сохранен в Google Sheets: ${chatId}`);
         } catch (error) {
