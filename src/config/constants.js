@@ -3,7 +3,7 @@ export const PRICE_PER_ARTICLE = 600;
 export const PRICE_PER_PHOTO = 40;
 
 // Константа для индекса листа Google Sheets
-export const GOOGLE_SHEET_INDEX = 3;
+export const GOOGLE_SHEET_INDEX = 4;
 
 // Константы для rate limiting
 export const RATE_LIMIT_WINDOW = 10000; // 10 секунд
